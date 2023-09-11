@@ -1,0 +1,37 @@
+server:
+  port: 8763
+  tomcat:
+    basedir: C:/log/
+    accesslog:
+      enabled: true
+      file-date-format: .yyyyMMdd
+      prefix: access_log
+      pattern: common
+
+spring:
+  application:
+    name: catalogue-service
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver 
+    url: jdbc:mysql://localhost:3306/productdb?serverTimezone=GMT
+    username: go2shop-service-account
+    password: ENC(8givPV0fFqZeDjPGkijgozHyqY4y40Bi7U/SUfNqWXfLWNpr+6gr0rGvwyx34sA8)
+  jpa:
+    show-sql: true
+#  rabbitmq:
+#    host: ${spring.rabbitmq.host}
+#    username: ${spring.rabbitmq.username}
+#    password: ${spring.rabbitmq.password}
+#    virtual-host: ${spring.rabbitmq.virtual-host}
+        
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ 
+
+feign:
+  hystrix:
+    enabled: true 
+
+img:
+  upload-path: D:\ISS\project\go2shop\go2shop-app\src\assets\images\products\
